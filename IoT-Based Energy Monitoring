@@ -1,0 +1,57 @@
+# IoT-Based-Enerimport java.util.Scanner;
+
+public class IoTEnergyMonitoring {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        double voltage;
+        double current;
+        double hours;
+        double tariff;
+
+        System.out.println("===== IoT BASED ENERGY MONITORING SYSTEM =====");
+
+        System.out.print("Enter Voltage (V): ");
+        voltage = sc.nextDouble();
+
+        System.out.print("Enter Current (A): ");
+        current = sc.nextDouble();
+
+        System.out.print("Enter Usage Time (hours): ");
+        hours = sc.nextDouble();
+
+        System.out.print("Enter Electricity Tariff (Rs/kWh): ");
+        tariff = sc.nextDouble();
+
+        // Calculate power
+        double power = voltage * current;
+
+        // Convert watts to kilowatts
+        double powerKW = power / 1000;
+
+        // Calculate energy consumption
+        double energy = powerKW * hours;
+
+        // Calculate electricity cost
+        double cost = energy * tariff;
+
+        System.out.println("\n===== ENERGY MONITORING REPORT =====");
+
+        System.out.printf("Voltage          : %.2f V%n", voltage);
+        System.out.printf("Current          : %.2f A%n", current);
+        System.out.printf("Power            : %.2f W%n", power);
+        System.out.printf("Energy Consumed  : %.2f kWh%n", energy);
+        System.out.printf("Electricity Cost : Rs %.2f%n", cost);
+
+        // Energy status
+        if (energy > 5) {
+            System.out.println("Status           : HIGH ENERGY CONSUMPTION");
+        } else {
+            System.out.println("Status           : NORMAL ENERGY CONSUMPTION");
+        }
+
+        sc.close();
+    }
+}gy-Monitoring
